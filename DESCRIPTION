@@ -1,0 +1,16 @@
+Package: regexport
+Title: Regression Table Output for R
+Version: 0.10
+Authors@R: person("Phillip", "Bastian", email = "pbastian@stern.nyu.edu", 
+  role = c("aut", "cre"), comment = "Research Scholar, NYU Stern")
+Description: Easily outputs regression tables in the standard format used in 
+  most academic publications. Output can be shown on the R console, exported 
+  to Microsoft Excel (using the openxlsx package), exported to HTML, or output
+  in Pandoc format for use in RMarkdown.
+Depends: R (>= 3.3.0)
+Imports: openxlsx
+License: MIT
+URL: https://www.github.com/philbastian/regexport
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2

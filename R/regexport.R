@@ -1,0 +1,46 @@
+#' regexport: Regression Table Output for R
+#'
+#' The \code{regexport} package provides a system for exporting regression 
+#' tables to the format typically used in academic publications. This format
+#' is characterized by a list of regression coefficients presented in rows
+#' and, in the case where more than one regression model is displayed, the
+#' individual regressions are displayed as columns. For each coefficient,
+#' the estimate is presented with the standard error below in parentheses.
+#' Statistically significant coefficients are shown with custom formatting,
+#' defaulting to the typical convention using stars. 
+#' 
+#' \strong{This is an alpha release.} Your comments and suggestions are
+#' appreciated. Please be aware that the package is likely to change in the
+#' future, including both underlying data structures and function parameters.
+#'  
+#' @section Main Functions:
+#' \code{\link{as.regexport}} is the main function to convert regression output 
+#' into a convenient format for use in publications. In fact, its \code{print} 
+#' method will display a table that will work for many purposes. However, other
+#' export functions can do better.
+#' 
+#' \code{\link{regexcel}} outputs a single regression model or a \code{list} of
+#' regressions to Microsoft Excel spreadsheet format using the \code{openxlsx}
+#' package. 
+#' 
+#' \code{\link{regmarkdown}} outputs a single regression model or a \code{list}
+#' of regressions to a character vector in Pandoc markdown format, making it 
+#' easy to output tables in RMarkdown documents.
+#' 
+#' \code{\link{reghtml}} outputs a single regression model or a \code{list} of
+#' regressions to an html table, making it easy to incorporate in web pages.
+#' 
+#' @section Author:
+#' \strong{Phillip Bastian}, Research Scholar <pbastian@@stern.nyu.edu>\cr
+#' Center for the Globalization of Education and Management\cr
+#' Leonard N. Stern School of Business\cr
+#' New York University
+#' 
+#' Citations are appreciated! Please use:
+#' 
+#' Phillip Bastian (2020). regexport: Regression Table Output for R. R package version 0.10.
+#' 
+#' @docType package
+#' @name regexport
+
+NULL

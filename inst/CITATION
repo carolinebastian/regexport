@@ -1,0 +1,13 @@
+citHeader("Please cite regexport in publications as:")
+
+citEntry(entry = "Misc",
+         title        = "regexport: Regression Table Output for R",
+         author       = person("Phillip", "Bastian", email = "pbastian@stern.nyu.edu", role = c("aut", "cre")),
+         organization = "New York University Leonard N. Stern School of Business",
+         year         = "2020",
+         url          = "https://www.github.com/philbastian/regexport",
+         
+         textVersion  = "Phillip Bastian (2020). regexport: Regression Table Output for R. R package version 0.10."
+)
+
+citFooter("regexport was developed at New York University's Leonard N. Stern School of Business.")
