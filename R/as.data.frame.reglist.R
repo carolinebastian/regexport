@@ -78,7 +78,10 @@ as.data.frame.reglist <- function(reglist, order = NULL, altnames = c(`^\\(Inter
       if(is.na(mini)) mini <- 0
       if(length(maxi) == 0) maxi <- 1
       
-      strver <- ifelse(regs[[a]]$coef$p >= mini & regs[[a]]$coef$p <= maxi, 
+      whichrows <- sapply(row.names(output)[row.names(output) %in% regs[[a]]$coef$var], 
+                          function(b) which(regs[[a]]$coef$var == b))
+      
+      strver <- ifelse(regs[[a]]$coef$p[whichrows] >= mini & regs[[a]]$coef$p[whichrows] <= maxi, 
                        sprintf(sigformats[b + 1], output[[a]][row.names(output) %in% regs[[a]]$coef$var]), strver)
     }
     

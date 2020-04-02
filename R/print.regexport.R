@@ -34,7 +34,7 @@
 #'              lm(mpg~cyl+disp+hp+drat, data = mtcars),
 #'              lm(mpg~hp+drat+wt, data = mtcars))
 #' 
-#' test <- regexport(test)
+#' test <- as.regexport(test)
 #' print(test) # An object of class reglist
 #' 
 #' test <- test[[1]]
