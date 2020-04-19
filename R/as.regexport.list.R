@@ -1,5 +1,4 @@
-
-
+#' @export
 
 as.regexport.list <- function(model) {
   if(!"depvar" %in% names(model)) stop("The regexport class requires a depvar (dependent variable name)")

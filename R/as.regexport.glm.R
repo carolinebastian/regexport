@@ -1,3 +1,5 @@
+#' @export
+
 as.regexport.glm <- function(model, sumstats = NULL) {
   
   ms <- summary(model)

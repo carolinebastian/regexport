@@ -1,3 +1,5 @@
+#' @export
+
 as.regexport.summary.lm <- function(model, sumstats = NULL) {
   coef <- as.data.frame(model$coefficients, stringsAsFactors = FALSE)
   coef$var <- gsub("`", "", row.names(coef))

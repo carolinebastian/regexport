@@ -1,3 +1,5 @@
+#' @export
+
 as.regexport.summary.glm <- function(model, sumstats = NULL) {
   
   fam <- model$family$family

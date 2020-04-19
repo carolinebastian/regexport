@@ -1,4 +1,5 @@
 #' @rdname print.regexport
+#' @export
 
 print.reglist <- function(reglist, order = NULL, altnames = c(`^\\(Intercept\\)$` = "Constant"), suppress = NULL,
                           digits = 3, sumstats = c("R-squared", "Adj. R-squared", "Observations"), 

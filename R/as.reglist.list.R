@@ -1,4 +1,4 @@
-
+#' @export
 
 
 as.reglist.list <- function(regs) {

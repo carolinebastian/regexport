@@ -18,5 +18,5 @@ An object of class regexport
 }
 \description{
 Apply revised standard errors from a coeftest (from package lmtest) to
-a model and coerce into class regexport
+a model and coerce into class regexport.
 }

@@ -1,3 +1,5 @@
+#' @export
+
 as.regexport.clogit <- function(model, sumstats = NULL) {
   ms <- summary(model)
   fam <- "clogit"
@@ -19,9 +21,10 @@ as.regexport.clogit <- function(model, sumstats = NULL) {
                  `Score (logrank) test` = ms$sctest[["test"]],
                  `  Degrees of freedom` = ms$sctest[["df"]],
                  `  P` = ms$sctest[["pvalue"]],
-                 `Observations` = ms$nevent)
+                 `Observations` = ms$n,
+                 `Number of Events` = ms$nevent)
   
-  depvar <- as.character(attr(ms$terms, "variables")[2])
+  depvar <- as.character(ms$call$formula[[2]][[3]])
   
   return(structure(list(c("glm", fam), depvar, coef, sstats, sumstats), 
                    names = c("modeltype", "depvar", "coef", "sumstats", "sumstats.user"), class = "regexport"))

@@ -1,3 +1,5 @@
+#' @export
+
 as.data.frame.reglist <- function(reglist, order = NULL, altnames = c(`^\\(Intercept\\)$` = "Constant"), suppress = NULL,
                                   digits = 3, sumstats = c("R-squared", "Adj. R-squared", "Observations"), siglevels = c(0.1, 0.05, 0.01), 
                                   sigformats = paste0("%1.", digits, "f", c("   ", "*  ", "** ", "***"))) {

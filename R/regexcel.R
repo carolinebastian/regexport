@@ -32,7 +32,7 @@
 #' @examples 
 #' data <- data.frame(x = c(2, 4, 5, 6, 8, 10), y = c(1, 1, 2, 2, 3, 3))
 #' regression <- lm(y ~ x, data = data)
-#' reg.to.xlsx(regression)
+#' regexcel(regression)
 #' @export 
 
 regexcel <- function(reglist, file = "output.xlsx", sheet = "Regression", order = NULL, altnames = NULL, regnames = NULL, 
