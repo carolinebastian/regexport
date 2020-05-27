@@ -89,17 +89,17 @@ regexcel <- function(reglist, file = "output.xlsx", sheet = "Regression", order 
   
   for(a in names(altnames)) {
     for(b in 1:length(regs)) {
-      regs[[b]]$depvar <- sub(a, altnames[a], regs[[b]]$depvar)
+      regs[[b]]$depvar <- sub(a, altnames[a], regs[[b]]$depvar, perl = TRUE)
       
-      i <- sub(a, altnames[a], regs[[b]]$coef$var)
+      i <- sub(a, altnames[a], regs[[b]]$coef$var, perl = TRUE)
       while(any(duplicated(i))) i[duplicated(i)] <- paste0(i[duplicated(i)], "\u200B")
       regs[[b]]$coef$var <- i 
       
-      i <- sub(a, altnames[a], names(regs[[b]]$sumstats))
+      i <- sub(a, altnames[a], names(regs[[b]]$sumstats), perl = TRUE)
       while(any(duplicated(i))) i[duplicated(i)] <- paste0(i[duplicated(i)], "\u200B")
       names(regs[[b]]$sumstats) <- i 
       
-      i <- sub(a, altnames[a], coeflist)
+      i <- sub(a, altnames[a], coeflist, perl = TRUE)
       while(any(duplicated(i))) i[duplicated(i)] <- paste0(i[duplicated(i)], "\u200B")
       coeflist <- i
     }
