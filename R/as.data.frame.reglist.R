@@ -11,24 +11,6 @@ as.data.frame.reglist <- function(reglist, order = NULL, altnames = c(`^\\(Inter
   if(!is.null(suppress) & length(suppress == 1)) coeflist <- coeflist[!grepl(suppress, coeflist)]
   if(!is.null(suppress) & length(suppress > 1)) coeflist <- coeflist[!coeflist %in% suppress]
   
-  for(a in names(altnames)) {
-    for(b in 1:length(regs)) {
-      regs[[b]]$depvar <- sub(a, altnames[a], regs[[b]]$depvar, perl = TRUE)
-
-      i <- sub(a, altnames[a], regs[[b]]$coef$var, perl = TRUE)
-      while(any(duplicated(i))) i[duplicated(i)] <- paste0(i[duplicated(i)], "\u200B")
-      regs[[b]]$coef$var <- i 
-      
-      i <- sub(a, altnames[a], names(regs[[b]]$sumstats), perl = TRUE)
-      while(any(duplicated(i))) i[duplicated(i)] <- paste0(i[duplicated(i)], "\u200B")
-      names(regs[[b]]$sumstats) <- i 
-      
-      i <- sub(a, altnames[a], coeflist, perl = TRUE)
-      while(any(duplicated(i))) i[duplicated(i)] <- paste0(i[duplicated(i)], "\u200B")
-      coeflist <- i
-    }
-  }
-  
   sstats <- lapply(regs, function(a) data.frame(var = names(a$sumstats)[names(a$sumstats) %in% sumstats], 
                                                 value = suppressWarnings(as.numeric(unlist(a$sumstats)[names(a$sumstats) %in% sumstats])), 
                                                 stringsAsFactors = FALSE))
@@ -132,6 +114,11 @@ as.data.frame.reglist <- function(reglist, order = NULL, altnames = c(`^\\(Inter
   
   rn <- sapply(regs, "[[", "depvar")
   names(output) <- paste0(rn, paste(rep(" ", spaces), collapse = ""))
+  
+  for(a in names(altnames)) {
+    names(output) <- sub(a, altnames[a], names(output), perl = TRUE)
+    row.names(output) <- sub(a, altnames[a], row.names(output), perl = TRUE)
+  }
   
   return(output)
 }
