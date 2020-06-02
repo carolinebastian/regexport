@@ -86,25 +86,7 @@ regexcel <- function(reglist, file = "output.xlsx", sheet = "Regression", order 
   if(!"(Intercept)" %in% order & "(Intercept)" %in% coeflist) coeflist <- c(coeflist[!coeflist %in% "(Intercept)"], "(Intercept)")
   if(!is.null(suppress) & length(suppress == 1)) coeflist <- coeflist[!grepl(suppress, coeflist)]
   if(!is.null(suppress) & length(suppress > 1)) coeflist <- coeflist[!coeflist %in% suppress]
-  
-  for(a in names(altnames)) {
-    for(b in 1:length(regs)) {
-      regs[[b]]$depvar <- sub(a, altnames[a], regs[[b]]$depvar)
-      
-      i <- sub(a, altnames[a], regs[[b]]$coef$var)
-      while(any(duplicated(i))) i[duplicated(i)] <- paste0(i[duplicated(i)], "\u200B")
-      regs[[b]]$coef$var <- i 
-      
-      i <- sub(a, altnames[a], names(regs[[b]]$sumstats))
-      while(any(duplicated(i))) i[duplicated(i)] <- paste0(i[duplicated(i)], "\u200B")
-      names(regs[[b]]$sumstats) <- i 
-      
-      i <- sub(a, altnames[a], coeflist)
-      while(any(duplicated(i))) i[duplicated(i)] <- paste0(i[duplicated(i)], "\u200B")
-      coeflist <- i
-    }
-  }
-  
+
   sstats <- lapply(regs, function(a) data.frame(var = names(a$sumstats)[names(a$sumstats) %in% sumstats], 
                                                 value = suppressWarnings(as.numeric(unlist(a$sumstats)[names(a$sumstats) %in% sumstats])), 
                                                 stringsAsFactors = FALSE))
@@ -145,7 +127,12 @@ regexcel <- function(reglist, file = "output.xlsx", sheet = "Regression", order 
   }
   
   names(output) <- sapply(regs, "[[", "depvar")
-
+  
+  for(a in names(altnames)) {
+    names(output) <- sub(a, altnames[a], names(output), perl = TRUE)
+    row.names(output) <- sub(a, altnames[a], row.names(output), perl = TRUE)
+  }
+  
   if(length(coefstyles) != length(siglevels) + 1) stop("The number of sigstyles must be the number of siglevels (breaks) plus 1")
 
   if(is.null(regnames)) {
