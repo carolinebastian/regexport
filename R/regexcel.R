@@ -71,12 +71,12 @@ regexcel <- function(reglist, file = "output.xlsx", sheet = "Regression", order 
   
   if(!sheet %in% names(work)) {
     openxlsx::addWorksheet(work, sheet)
-    
-    openxlsx::setColWidths(work, sheet, 1, 35)
-    openxlsx::setColWidths(work, sheet, 1 + 1:length(reglist), 10)
   } else {
     warning(sprintf("Workbook already contains a sheet called '%s'. Overwriting existing data.", sheet))
   }
+  
+  openxlsx::setColWidths(work, sheet, 1, 35)
+  openxlsx::setColWidths(work, sheet, 1 + 1:length(reglist), 10)
   
   if(!class(reglist) %in% c("list", "reglist")) reglist <- list(reglist)
   regs <- as.reglist(reglist)
@@ -152,18 +152,20 @@ regexcel <- function(reglist, file = "output.xlsx", sheet = "Regression", order 
     sr <- 2 + startrow
   } else {
     openxlsx::writeData(work, sheet, as.data.frame(as.list(regnames)), 2, 2 + startrow, colNames = FALSE)
-    openxlsx::addStyle(work, sheet, openxlsx::createStyle(halign = "center"), 2 + startrow, 1:length(regnames) + 1)
+    openxlsx::addStyle(work, sheet, openxlsx::createStyle(halign = "center", wrapText = TRUE), 2 + startrow, 1:length(regnames) + 1)
     sr <- 3 + startrow
   }
   
-  openxlsx::writeData(work, sheet, output, startRow = sr, startCol = 1, headerStyle = openxlsx::createStyle(border = "bottom", halign = "center"), 
+  openxlsx::writeData(work, sheet, output, startRow = sr, startCol = 1, headerStyle = openxlsx::createStyle(border = "bottom", 
+                                                                                                            halign = "center",
+                                                                                                            wrapText = TRUE), 
                       rowNames = TRUE)
   
   for(a in grep("!SE", row.names(output))) {
     openxlsx::mergeCells(work, sheet, 1, (sr + a) + -1:0)  
   }
   
-  openxlsx::addStyle(work, sheet, openxlsx::createStyle(valign = "top"), (sr - 1):(sr + nrow(output)), 1)
+  openxlsx::addStyle(work, sheet, openxlsx::createStyle(valign = "top", wrapText = TRUE), (sr - 1):(sr + nrow(output)), 1)
   
   nrs <- as.data.frame(as.list(1:length(output)))
   openxlsx::writeData(work, sheet, nrs, 2, startrow + 1, colNames = FALSE)
