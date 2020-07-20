@@ -162,6 +162,10 @@ regexcel <- function(reglist, file = "output.xlsx", sheet = "Regression", order 
   for(a in 1:length(output)) {
     co <- regs[[a]]$coef
     
+    for(b in names(altnames)) {
+      co$var <- sub(b, altnames[b], co$var, perl = TRUE)
+    }
+      
     for(b in 0:length(siglevels)) {
       mini <- siglevels[b + 1]
       maxi <- siglevels[b]
