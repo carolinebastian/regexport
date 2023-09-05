@@ -12,6 +12,15 @@ me a note that helps me to replicate the problem and I'll try and fix them (as I
 suggestions. So far it works with lm, glm, and a handful of other methods that I use from time to time. I'd like to
 expand that. Also so far, it outputs to Excel and the terminal (which looks great on Windows and needs work on Linux).
 
-Please let me know if you like the package. I'm happy to receive all feedback! pbastian at stern.nyu.edu.
+Please let me know if you like the package. I'm happy to receive all feedback! cbastian at stern.nyu.edu.
 
 Note: this is released under an MIT license.
+
+**Caroline R. Bastian**, Research Scholar <cbastian@@stern.nyu.edu>
+Center for the Future of Management\cr
+Leonard N. Stern School of Business\cr
+New York University
+ 
+Citations are appreciated! Please use:
+ 
+Caroline R. Bastian (2022). regexport: Regression Table Output for R. R package version 0.20.

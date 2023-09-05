@@ -40,13 +40,13 @@ regressions to an html table, making it easy to incorporate in web pages.
 
 \section{Author}{
 
-\strong{Phillip Bastian}, Research Scholar <pbastian@stern.nyu.edu>\cr
+\strong{Caroline R. Bastian}, Research Scholar <cbastian@stern.nyu.edu>\cr
 Center for the Globalization of Education and Management\cr
 Leonard N. Stern School of Business\cr
 New York University
 
 Citations are appreciated! Please use:
 
-Phillip Bastian (2020). regexport: Regression Table Output for R. R package version 0.10.
+Caroline R. Bastian (2023). regexport: Regression Table Output for R. R package version 0.20.
 }
 
