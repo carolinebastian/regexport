@@ -1,6 +1,6 @@
 Package: regexport
 Title: Regression Table Output for R
-Version: 0.20
+Version: 0.21
 Authors@R: person(c("Caroline", "Renée"), "Bastian", 
   email = "cbastian@stern.nyu.edu", 
   comment = "Research Scholar, NYU Stern",

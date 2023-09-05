@@ -10,7 +10,11 @@ as.regexport.fixest <- function(model, ..., sumstats = NULL) {
   names(coef)[names(coef) %in% "Std..Error"] <- "se"
   names(coef)[names(coef) %in% "Pr...t.."] <- "p"
   
-  coef <- coef[c("var", "est", "se", "p")]
+  coef <- tryCatch(coef[c("var", "est", "se", "p")], 
+                   error = function(e) data.frame(var = "Fixed effects only",
+                                                  est = NA,
+                                                  se = NA,
+                                                  p = NA))
   row.names(coef) <- NULL
   
   sstats <- list(`Deviance` = ms$deviance,
