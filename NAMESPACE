@@ -3,6 +3,7 @@
 S3method(as.data.frame,reglist)
 S3method(as.regexport,clogit)
 S3method(as.regexport,coeftest)
+S3method(as.regexport,fixest)
 S3method(as.regexport,glm)
 S3method(as.regexport,list)
 S3method(as.regexport,lm)

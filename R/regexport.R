@@ -38,7 +38,7 @@
 #' 
 #' Citations are appreciated! Please use:
 #' 
-#' Caroline R. Bastian (2022). regexport: Regression Table Output for R. R package version 0.20.
+#' Caroline R. Bastian (2023). regexport: Regression Table Output for R. R package version 0.20.
 #' 
 #' @docType package
 #' @name regexport

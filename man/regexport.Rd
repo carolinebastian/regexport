@@ -41,7 +41,7 @@ regressions to an html table, making it easy to incorporate in web pages.
 \section{Author}{
 
 \strong{Caroline R. Bastian}, Research Scholar <cbastian@stern.nyu.edu>\cr
-Center for the Globalization of Education and Management\cr
+Center for the Future of Management\cr
 Leonard N. Stern School of Business\cr
 New York University
 
