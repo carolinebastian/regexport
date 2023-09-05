@@ -88,7 +88,7 @@ regexcel <- function(reglist, file = "output.xlsx", sheet = "Regression", order 
   if(!is.null(suppress) & length(suppress > 1)) coeflist <- coeflist[!coeflist %in% suppress]
 
   sstats <- lapply(regs, function(a) data.frame(var = names(a$sumstats)[names(a$sumstats) %in% sumstats], 
-                                                value = suppressWarnings(as.numeric(unlist(a$sumstats)[names(a$sumstats) %in% sumstats])), 
+                                                value = suppressWarnings(as.numeric(unlist(a$sumstats[names(a$sumstats) %in% sumstats]))), 
                                                 stringsAsFactors = FALSE))
   
   for(a in 1:length(regs)) {
